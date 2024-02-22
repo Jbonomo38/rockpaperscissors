@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Declare variable for userScore
+        let userScore = 0;
+        // Declare variable for compScore
+        let compScore = 0;
+
+        // Generates the computer's choice
+        function getCompChoice {
+            let randomNum = Math.round(Math.random()*100);
+            if (randomNum <= 33) {
+                console.log("Computer chooses rock");
+                return "rock";
+            } else {
+                if (randomNum <= 66) {
+                    console.log("Computer chooses paper");
+                    return "paper";
+                }
+            }
+            console.log("Computer chooses scissors");
+            return "scissors";
+        }
+
+        // Determines who wins in a round by comparing userChoice to compChoice
+        function playRound(userChoice, compChoice) {
+            let uChoice = userChoice.toLowerCase();
+            let cChoice = compChoice.toLowerCase();
+            
+            // Draw logic (if user and comp pick the same)
+            if (uChoice === cChoice) {
+                console.log("It's a tie!");
+                return "tie";
+            }
+
+            // Logic for user choosing rock
+            if (uChoice === "rock") {
+                if(cChoice === "paper") {
+                    console.log("Comp wins! (paper beats rock)");
+                    return "user";
+                }
+                if(cChoice === "scissors"){
+                    console.log("Comp wins! (rock beats scissors)");
+                    return "comp";
+                }
+            }
+
+            // Logic for user choosing paper
+            if (uChoice === "paper") {
+                if(cChoice === "rock") {
+                    console.log("User wins! (paper beats rock)");
+                    return "user";
+                }
+                if(cChoice === "scissors") {
+                    console.log("Comp wins! (scissors beats paper)");
+                    return "comp";
+                }
+            }
+
+            // Logic for user choosing scissors
+            if (uChoice === "scissors") {
+                if(cChoice === "rock") {
+                    console.log("Comp wins! (rock beats scissors)");
+                    return "user";
+                }
+                if(cChoice === "paper") {
+                    console.log("User wins! (scissors beats paper)");
+                    return "comp";
+                }
+            }
+
+            // Catch-all in case inputs are inaccurate
+            return "User did not choose a correct option";
+        }
+
+        function playGame {
+            for(let i = 0; i < 5; i++) {
+            // Ask the user for their choice
+            
+            // Generate a computer choice using random math number
+            
+            // If logic to determine who wins
+        }
+        }
+       
+            
+
+    </script>
+
+</body>
+</html>
