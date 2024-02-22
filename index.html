@@ -7,11 +7,6 @@
 </head>
 <body>
     <script>
-        // Declare variable for userScore
-        let userScore = 0;
-        // Declare variable for compScore
-        let compScore = 0;
-
         // Generates the computer's choice
         function getCompChoice {
             let randomNum = Math.round(Math.random()*100);
@@ -46,7 +41,7 @@
                     return "user";
                 }
                 if(cChoice === "scissors"){
-                    console.log("Comp wins! (rock beats scissors)");
+                    console.log("User wins! (rock beats scissors)");
                     return "comp";
                 }
             }
@@ -79,18 +74,27 @@
             return "User did not choose a correct option";
         }
 
+        // Function to run a game, best of 5
         function playGame {
-            for(let i = 0; i < 5; i++) {
-            // Ask the user for their choice
-            
-            // Generate a computer choice using random math number
-            
-            // If logic to determine who wins
-        }
-        }
-       
-            
+            // Declare variable for userScore
+            let userScore = 0;
+            // Declare variable for compScore
+            let compScore = 0;
 
+            for(let i = 0; i < 5; i++) {
+                if(playRound(prompt("Rock, Paper, Scissors?", getCompChoice())) === "user") userScore++;
+                compScore++;
+                console.log(`User: ${userScore}, Comp: ${compScore}`);
+            }
+
+            if(userScore > compScore) {
+                console.log(`User wins!`);
+                return "user";
+            } else {
+                console.log(`Comp wins!`);
+                return "comp";
+            }
+        }  
     </script>
 
 </body>
