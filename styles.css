@@ -1,0 +1,17 @@
+html {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 12px;
+    
+}
+
+.choice {
+    display:flex;
+    flex-direction: row;
+}
