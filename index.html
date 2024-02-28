@@ -8,25 +8,27 @@
     <title>RPS</title>
 </head>
 <body>
-   <div class="choices">
-        <div class="choice">
-            <div>Computer Choice: </div> 
-            <div class="comp-choice">User Selects First</div>
+    <div class="blocks">
+        <div class="block" id="user">
+            <div class="block-title">User</div>
+            <div class="choice" id="user-choice">User Chooses First</div>
+             <div class="score" id="user-score">0</div>
         </div>
-        <div class="choice">
-            <div>User Choice: </div>  
-            <div class="user-choice">User Selects First</div>
+
+        <div class="block" id="comp">
+            <div class="block-title">Computer</div>
+            <div class="choice" id="comp-choice">User Chooses First</div>
+            <div class="score" id="comp-score">0</div>
         </div>
     </div>
 
-   <div class="results"></div>
-   <div class="user-score"></div>
-   <div class="comp-score"></div>
-   
    <div class="buttons">
-        <button class="Rock">Rock</button>
-        <button class="Paper">Paper</button>
-        <button class="Scissors">Scissors</button>
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
    </div>
+
+   <div class="console">Rock, Paper, Scissors?</div>
+
 </body>
 </html>

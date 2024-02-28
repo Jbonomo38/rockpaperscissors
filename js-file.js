@@ -1,6 +1,6 @@
-const rock = document.querySelector('.Rock');
-const paper = document.querySelector('.Paper');
-const scissors = document.querySelector('.Scissors');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 
 rock.addEventListener('click', () => playRound(rock.textContent, getCompChoice()));
 paper.addEventListener('click', () => playRound(paper.textContent, getCompChoice()));
@@ -8,20 +8,20 @@ scissors.addEventListener('click', () => playRound(scissors.textContent, getComp
 
 // Generates the computer's choice
 function getCompChoice() {
-    const compChoice = document.querySelector('.comp-choice');
+    const compChoice = document.querySelector('#comp-choice');
     
     let randomNum = Math.round(Math.random()*100);
     // console.log(randomNum);
     if (randomNum <= 33) {
-        compChoice.textContent = "rock";
+        compChoice.textContent = "Rock";
         return "rock";
     } else {
         if (randomNum <= 66) {
-            compChoice.textContent = "paper";
+            compChoice.textContent = "Paper";
             return "paper";
         }
     }
-    compChoice.textContent = "scissors";
+    compChoice.textContent = "Scissors";
     return "scissors";
 }
 
@@ -29,12 +29,12 @@ function getCompChoice() {
 function playRound(userChoice, compChoice) {
     // console.log(userChoice);
     // console.log(compChoice);
+    document.querySelector('#user-choice').textContent = userChoice;
+
     let uChoice = userChoice.toLowerCase();
     let cChoice = compChoice.toLowerCase();
 
-    document.querySelector('.user-choice').textContent = userChoice;
-
-    const resultLog = document.querySelector('.results');
+    const resultLog = document.querySelector('.console');
     
     // Draw logic (if user and comp pick the same)
     if (uChoice === cChoice) {
@@ -46,10 +46,12 @@ function playRound(userChoice, compChoice) {
     if (uChoice === "rock") {
         if(cChoice === "paper") {
             resultLog.textContent = "Comp wins! (paper beats rock)";
+            updateCompScore(getCompScore()+1);
             return "comp";
         }
         if(cChoice === "scissors"){
             resultLog.textContent = "User wins! (rock beats scissors)";
+            updateUserScore(getUserScore()+1);
             return "user";
         }
     }
@@ -58,10 +60,12 @@ function playRound(userChoice, compChoice) {
     if (uChoice === "paper") {
         if(cChoice === "rock") {
             resultLog.textContent = "User wins! (paper beats rock)";
+            updateUserScore(getUserScore()+1);
             return "user";
         }
         if(cChoice === "scissors") {
             resultLog.textContent = "Comp wins! (scissors beats paper)";
+            updateCompScore(getCompScore()+1);
             return "comp";
         }
     }
@@ -70,15 +74,18 @@ function playRound(userChoice, compChoice) {
     if (uChoice === "scissors") {
         if(cChoice === "rock") {
             resultLog.textContent = "Comp wins! (rock beats scissors)";
+            updateCompScore(getCompScore()+1);
             return "comp";
         }
         if(cChoice === "paper") {
             resultLog.textContent = "User wins! (scissors beats paper)";
+            updateUserScore(getUserScore()+1);
             return "user";
         }
     }
 
     // Catch-all in case inputs are inaccurate
+    resultLog.textContent = "User did not choose a correct option";
     return "User did not choose a correct option";
 }
 
@@ -113,3 +120,21 @@ function playGame() {
 
 // Run a series of 5;
 // playGame();
+
+function getUserScore() {
+    const scoreDiv = document.querySelector('#user-score');
+    return parseInt(scoreDiv.textContent, 10);
+}
+
+function getCompScore() {
+    const scoreDiv = document.querySelector('#comp-score');
+    return parseInt(scoreDiv.textContent, 10);
+}
+
+function updateUserScore(newScore) {
+    document.querySelector('#user-score').textContent = newScore.toString();
+}
+
+function updateCompScore(newScore) {
+    document.querySelector('#comp-score').textContent = newScore.toString();
+}

@@ -1,6 +1,8 @@
 html {
     display: flex;
     justify-content: space-around;
+    align-items: space-around;
+    height: 100vh;
 }
 
 .buttons {
@@ -8,10 +10,58 @@ html {
     flex-direction: column;
     justify-content: space-around;
     padding: 12px;
-    
 }
 
-.choice {
-    display:flex;
-    flex-direction: row;
+.rock,
+.paper,
+.scissors {
+    margin: 4px;
+    width: 50vw;
+    height: 50px;
 }
+
+.blocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: space-between;
+    margin: 4px;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    background: green;
+    margin: 4px;
+    padding: 12px;
+    border-radius: 12px;
+    width: 175px;
+}
+
+#comp {
+    background-color: blue;
+}
+
+.block-title,
+.choice,
+.score {
+    padding: 12px;
+}
+
+.block-title {
+    background-color: grey;
+    width: 150px;
+    text-align: center;
+}
+
+.console {
+    display: flex;
+    justify-content: center;
+    margin: 4px;
+}
+
